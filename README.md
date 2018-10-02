@@ -1,8 +1,2 @@
-"# Elon-s-musk" 
-"# Elon-s-musk" 
-"# Elon-s-musk" 
-"# Elon-s-musk" 
-"# Elon-s-musk" 
-"# Elon-s-musk" 
-"# Elon-s-musk" 
-"# Elon-s-musk" 
+## IQ PUZZLER PRO
+  IQ Puzzler Pro is a puzzle game consisting of 12 puzzle pieces in the form of beads molded together into different shapes. The goal of each level is to fit each of the puzzle pieces together onto a 5x12 grid to create a solid rectangle.While doing that mission, players have limited time. This time is increased based on the difficulty of the level. Players have to make sure to complete the task in that period of time or else they will be considered as a loser.The easier levels will give the player a diagram with all of the puzzle pieces placed where they belong except for two pieces, and the player must fit them into the empty spaces. The more difficult levels will only have one or two pieces placed in the diagram and the player must decide where the rest should go. Furthermore, the game can be played online against another player. The game hold the scores so that players can compare their score with the others and the game has a table for highest scores. Moreover, players can make an account for themselves. Thus, if they want they can continue where they left last time or restart the game. If they want they can take a hint from the program but they have only three hint using right for each pattern. Taking hint will also decrease their score. 
