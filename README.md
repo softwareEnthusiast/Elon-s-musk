@@ -5,7 +5,7 @@
 
 ## Members of the Group
 1. Ebru Kerem - 21501859
-2. Enes Yıldırım
+2. Enes Yıldırım - 21602725
 3. Ömer Fatih Çelik - 21601387
 4. Cenk Er - 21600937
 5. Eren Yalçın - 21602004
