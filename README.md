@@ -1,4 +1,17 @@
-## IQ PUZZLER PRO
+# IQ PUZZLER PRO
+ CS319 Section-3
+ Group 3G
+ Group Name: Elon's Musk
+
+## Members of the Group
+1. Ebru Kerem - 21501859
+2. Enes Yıldırım
+3. Fatih Çelik
+4. Cenk Er
+5. Eren Yalçın - 21602004
+6. Burak Bayar
+
+## Project Description
 This is a small project with 6 contributors aiming to create an IQ Puzzler Pro Windows PC game using .NET framework and software engineering practices.
   
   IQ Puzzler Pro is a puzzle game consisting different puzzle pieces and a board. The goal of the game is to fit all puzzle pieces together onto the map. There will be different puzzle scenarios with varying difficulties. The game will include a timer, a hint box and a point system. Furthermore, there will be online version of the game where players able to create custom scenarios. They will be able to share them online for other players to compete for highscores.
