@@ -9,7 +9,7 @@
 3. Ömer Fatih Çelik - 21601387
 4. Cenk Er - 21600937
 5. Eren Yalçın - 21602004
-6. Burak Bayar
+6. Burak Bayar - 21401971
 
 ## Project Description
 This is a small project with 6 contributors aiming to create an IQ Puzzler Pro Windows PC game using .NET framework and software engineering practices.
