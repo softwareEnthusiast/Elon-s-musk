@@ -7,7 +7,7 @@
 1. Ebru Kerem - 21501859
 2. Enes Yıldırım
 3. Fatih Çelik
-4. Cenk Er
+4. Cenk Er - 21600937
 5. Eren Yalçın - 21602004
 6. Burak Bayar
 
