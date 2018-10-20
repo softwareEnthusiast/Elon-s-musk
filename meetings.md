@@ -8,7 +8,7 @@ Location: Main Campus Library
 - Decision of Programming Language to be used
 - Preparation of Use Case Diagram
 - Distribution of Project Analyses Report Parts
-Action Items
+## Action Items
 - [Burak] User interface - navigational paths and screen mock-ups
 - [Cenk] Dynamic Models & Functional Requirements
 - [Ebru] Use-Case Diagram & Dynamic Models
