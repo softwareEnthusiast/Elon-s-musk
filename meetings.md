@@ -1,7 +1,7 @@
 # Group 3G [Burak,Cenk,Ebru,Enes,Eren,Fatih] Project Meetings
 
 ## Meeting on Oct 10, 18:00
-Participants: Burak,Cenk,Ebru,Enes,Eren,Fatih
+Participants: Burak, Cenk, Ebru, Enes, Eren, Fatih
 Location: Main Campus Library
 ## Agenda
 - Discussion about Project Requirements
@@ -16,7 +16,7 @@ Location: Main Campus Library
 - [Eren] Functional Requirements Part & Board Game Analysis
 - [Fatih] Object and Class Model & Nonfunctional Requirements
 ## Meeting on Oct 17, 18:00
-Participants: Burak,Cenk,Ebru,Enes,Eren,Fatih
+Participants: Burak, Cenk, Ebru, Enes, Eren, Fatih
 Location: Main Campus Library
 ## Agenda
 - Start making diagrams
@@ -30,7 +30,7 @@ Location: Main Campus Library
  […]
  […]
 ## Meeting on Oct 20, 18:00
-Participants: Burak,Cenk,Ebru,Enes,Eren,Fatih
+Participants: Burak, Cenk, Ebru, Enes, Eren, Fatih
 Location: Main Campus Library
 ## Agenda
 - Finishing report and diagrams
