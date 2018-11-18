@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp2
+{
+    static class Program
+    {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            PuzzlePiece a = new PuzzlePiece(1, 1);
+            PuzzlePiece b = new PuzzlePiece(2, 2);
+            PuzzlePiece c = new PuzzlePiece(3, 3);
+            PuzzlePiece d = new PuzzlePiece(4, 4);
+            PuzzlePiece e = new PuzzlePiece(5, 5);
+            PuzzlePiece f = new PuzzlePiece(6, 6);
+            Application.Run(new Sprite(15, 15, a));
+
+        }
+    }
+}
