@@ -10,14 +10,12 @@ namespace IQPuzzleProVer2
     {
 
         List<PuzzlePiece> puzzleList;
+        List<PuzzlePiece> inventoryPuzzlePieces;
         int levelNumber;
         Map levelMap;
         int score;
         List<Hint> hints;
 
-
-
-        List<Hint> hint;
 
         public MapBuilder(int levelNumber)
         {
@@ -30,33 +28,34 @@ namespace IQPuzzleProVer2
             {
                 hints = null;
                 puzzleList = new List<PuzzlePiece>();
-                PuzzlePiece piece;
-                piece = new PuzzlePiece(11, 11, false);
-                puzzleList.Add(piece);
+                inventoryPuzzlePieces = new List<PuzzlePiece>();
+                PuzzlePiece piece11;
+                piece11 = new PuzzlePiece(11, 11, false);
+                puzzleList.Add(piece11);
 
-                PuzzlePiece piece2;
-                piece2 = new PuzzlePiece(7, 7, false);
-                puzzleList.Add(piece2);
+                PuzzlePiece piece7;
+                piece7 = new PuzzlePiece(7, 7, false);
+                puzzleList.Add(piece7);
 
-                PuzzlePiece piece3;
-                piece3 = new PuzzlePiece(9, 9, false);
-                puzzleList.Add(piece3);
+                PuzzlePiece piece9;
+                piece9 = new PuzzlePiece(9, 9, false);
+                puzzleList.Add(piece9);
 
                 PuzzlePiece piece4;
                 piece4 = new PuzzlePiece(4, 4, false);
                 puzzleList.Add(piece4);
 
-                PuzzlePiece piece5;
-                piece5 = new PuzzlePiece(1, 1, false);
-                puzzleList.Add(piece5);
+                PuzzlePiece piece1;
+                piece1 = new PuzzlePiece(1, 1, false);
+                puzzleList.Add(piece1);
 
-                PuzzlePiece piece6;
-                piece6 = new PuzzlePiece(8, 8, false);
-                puzzleList.Add(piece6);
+                PuzzlePiece piece8;
+                piece8 = new PuzzlePiece(8, 8, false);
+                puzzleList.Add(piece8);
 
-                PuzzlePiece piece7;
-                piece7 = new PuzzlePiece(2, 2, false);
-                puzzleList.Add(piece7);
+                PuzzlePiece piece2;
+                piece2 = new PuzzlePiece(2, 2, false);
+                puzzleList.Add(piece2);
 
                 foreach (PuzzlePiece item in puzzleList)
                 {
@@ -104,12 +103,19 @@ namespace IQPuzzleProVer2
                 levelMap.mapArray[4, 6] = 12;
                 levelMap.mapArray[4, 7] = 12;
                 levelMap.mapArray[4, 8] = 12;
-                
+
+                PuzzlePiece piece5 = new PuzzlePiece(5,5,true);
+                inventoryPuzzlePieces.Add(piece5);
+                PuzzlePiece piece6 = new PuzzlePiece(6, 6, true);
+                inventoryPuzzlePieces.Add(piece6);
+                PuzzlePiece piece10 = new PuzzlePiece(10, 10, true);
+                inventoryPuzzlePieces.Add(piece10);
+
 
 
             }
 
-            if (levelNumber == 2)
+            else if (levelNumber == 2)
             {
                 bool[,] array = new bool[4, 4];
                 for (int i = 0; i < 4; i++)
@@ -130,37 +136,37 @@ namespace IQPuzzleProVer2
                 Hint hint = new Hint(9, 1, array, 6, 2);
                 hints.Add(hint);
                 puzzleList = new List<PuzzlePiece>();
-                PuzzlePiece piece;
-                piece = new PuzzlePiece(6, 6, false);
-                puzzleList.Add(piece);
+                PuzzlePiece piece6;
+                piece6 = new PuzzlePiece(6, 6, false);
+                puzzleList.Add(piece6);
 
                 PuzzlePiece piece2;
                 piece2 = new PuzzlePiece(2, 2, false);
                 puzzleList.Add(piece2);
 
-                PuzzlePiece piece3;
-                piece3 = new PuzzlePiece(11, 11, false);
-                puzzleList.Add(piece3);
-
-                PuzzlePiece piece4;
-                piece4 = new PuzzlePiece(5, 5, false);
-                puzzleList.Add(piece4);
+                PuzzlePiece piece11;
+                piece11 = new PuzzlePiece(11, 11, false);
+                puzzleList.Add(piece11);
 
                 PuzzlePiece piece5;
-                piece5 = new PuzzlePiece(1, 1, false);
+                piece5 = new PuzzlePiece(5, 5, false);
                 puzzleList.Add(piece5);
 
-                PuzzlePiece piece6;
-                piece6 = new PuzzlePiece(8, 8, false);
-                puzzleList.Add(piece6);
-
-                PuzzlePiece piece7;
-                piece7 = new PuzzlePiece(4, 4, false);
-                puzzleList.Add(piece7);
+                PuzzlePiece piece1;
+                piece1 = new PuzzlePiece(1, 1, false);
+                puzzleList.Add(piece1);
 
                 PuzzlePiece piece8;
-                piece8 = new PuzzlePiece(12, 12, false);
+                piece8 = new PuzzlePiece(8, 8, false);
                 puzzleList.Add(piece8);
+
+                PuzzlePiece piece4;
+                piece4 = new PuzzlePiece(4, 4, false);
+                puzzleList.Add(piece4);
+
+                PuzzlePiece piece12;
+                piece12 = new PuzzlePiece(12, 12, false);
+                puzzleList.Add(piece12);
 
                 foreach (PuzzlePiece item in puzzleList)
                 {
@@ -205,7 +211,15 @@ namespace IQPuzzleProVer2
                 levelMap.mapArray[4, 4] = 1;
                 levelMap.mapArray[4, 5] = 1;
 
-           
+
+                PuzzlePiece piece3 = new PuzzlePiece(3, 3, true);
+                inventoryPuzzlePieces.Add(piece3);
+                PuzzlePiece piece7 = new PuzzlePiece(7, 7, true);
+                inventoryPuzzlePieces.Add(piece7);
+                PuzzlePiece piece9 = new PuzzlePiece(9, 9, true);
+                inventoryPuzzlePieces.Add(piece9);
+                PuzzlePiece piece10 = new PuzzlePiece(10, 10, true);
+                inventoryPuzzlePieces.Add(piece10);
             }
 
             if (levelNumber == 3)
@@ -236,25 +250,25 @@ namespace IQPuzzleProVer2
                 hints.Add(hint2);
 
                 puzzleList = new List<PuzzlePiece>();
-                PuzzlePiece piece;
-                piece = new PuzzlePiece(11, 11, false);
-                puzzleList.Add(piece);
+                PuzzlePiece piece11;
+                piece11 = new PuzzlePiece(11, 11, false);
+                puzzleList.Add(piece11);
 
-                PuzzlePiece piece2;
-                piece2 = new PuzzlePiece(1, 1, false);
-                puzzleList.Add(piece2);
+                PuzzlePiece piece1;
+                piece1 = new PuzzlePiece(1, 1, false);
+                puzzleList.Add(piece1);
 
-                PuzzlePiece piece3;
-                piece3 = new PuzzlePiece(10, 10, false);
-                puzzleList.Add(piece3);
+                PuzzlePiece piece10;
+                piece10 = new PuzzlePiece(10, 10, false);
+                puzzleList.Add(piece10);
 
-                PuzzlePiece piece4;
-                piece4 = new PuzzlePiece(7, 7, false);
-                puzzleList.Add(piece4);
+                PuzzlePiece piece7;
+                piece7 = new PuzzlePiece(7, 7, false);
+                puzzleList.Add(piece7);
 
-                PuzzlePiece piece5;
-                piece5 = new PuzzlePiece(12, 12, false);
-                puzzleList.Add(piece5);
+                PuzzlePiece piece12;
+                piece12 = new PuzzlePiece(12, 12, false);
+                puzzleList.Add(piece12);
 
                 foreach (PuzzlePiece item in puzzleList)
                 {
@@ -286,7 +300,20 @@ namespace IQPuzzleProVer2
                 levelMap.mapArray[2, 5] = 10;
                 levelMap.mapArray[3, 1] = 11;
 
-               
+                PuzzlePiece piece3 = new PuzzlePiece(3, 3, true);
+                inventoryPuzzlePieces.Add(piece3);
+                PuzzlePiece piece2 = new PuzzlePiece(2, 2, true);
+                inventoryPuzzlePieces.Add(piece2);
+                PuzzlePiece piece4 = new PuzzlePiece(4, 4, true);
+                inventoryPuzzlePieces.Add(piece4);
+                PuzzlePiece piece5 = new PuzzlePiece(5, 5, true);
+                inventoryPuzzlePieces.Add(piece5);
+                PuzzlePiece piece6 = new PuzzlePiece(6, 6, true);
+                inventoryPuzzlePieces.Add(piece6);
+                PuzzlePiece piece9 = new PuzzlePiece(9, 9, true);
+                inventoryPuzzlePieces.Add(piece9);
+                PuzzlePiece piece8 = new PuzzlePiece(8, 8, true);
+                inventoryPuzzlePieces.Add(piece8);
 
             }
 
@@ -306,7 +333,19 @@ namespace IQPuzzleProVer2
             return mapArray;
         }
 
+        public Map getMap()
+        {
+            return levelMap;
+        }
+        public List<Hint> getHint()
+        {
+            return hints;
+        }
 
+        public List<PuzzlePiece> getInventoryPuzzlePieces()
+        {
+            return inventoryPuzzlePieces;
+        }
 
     }
 }
