@@ -1,0 +1,189 @@
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace IQPuzzleProVer2
+{
+    public class MapSprite : System.Windows.Forms.Control
+    {
+        Graphics gObject;
+        MapBuilder lMap;
+        int[,] arr;
+        public int locX;
+        public int locY;
+        Rectangle circle;
+        Pen red = new Pen(Color.Red);
+        Pen pink = new Pen(Color.Pink);
+        Pen yellow = new Pen(Color.Yellow);
+        Pen blue = new Pen(Color.Blue);
+        Pen orange = new Pen(Color.Orange);
+        Pen turquoise = new Pen(Color.Turquoise);
+        Pen skyblue = new Pen(Color.SkyBlue);
+        Pen green = new Pen(Color.Green);
+        Pen lightgreen = new Pen(Color.LightGreen);
+        Pen darkred = new Pen(Color.DarkRed);
+        Pen darkblue = new Pen(Color.DarkSlateBlue);
+        Pen violet = new Pen(Color.Violet);
+        System.Drawing.SolidBrush fillred = new System.Drawing.SolidBrush(Color.Red);
+        System.Drawing.SolidBrush fillpink = new System.Drawing.SolidBrush(Color.Pink);
+        System.Drawing.SolidBrush fillyellow = new System.Drawing.SolidBrush(Color.Yellow);
+        System.Drawing.SolidBrush fillblue = new System.Drawing.SolidBrush(Color.Blue);
+        System.Drawing.SolidBrush fillorange = new System.Drawing.SolidBrush(Color.Orange);
+        System.Drawing.SolidBrush fillturquoise = new System.Drawing.SolidBrush(Color.Turquoise);
+        System.Drawing.SolidBrush fillskyblue = new System.Drawing.SolidBrush(Color.SkyBlue);
+        System.Drawing.SolidBrush fillgreen = new System.Drawing.SolidBrush(Color.Green);
+        System.Drawing.SolidBrush filllightgreen = new System.Drawing.SolidBrush(Color.LightGreen);
+        System.Drawing.SolidBrush filldarkred = new System.Drawing.SolidBrush(Color.DarkRed);
+        System.Drawing.SolidBrush filldarkblue = new System.Drawing.SolidBrush(Color.DarkSlateBlue);
+        System.Drawing.SolidBrush fillviolet = new System.Drawing.SolidBrush(Color.Violet);
+
+        public MapSprite(int level,Graphics g)
+        {
+            arr = new int[5,11];
+            gObject = g;
+            lMap = new MapBuilder(level);
+            circle = new Rectangle(locX, locY, 60, 60);
+
+            setUpCanvas();
+            fillCanvas();
+        }
+        public void fillCanvas()
+        {
+            circle.X = 0;
+            circle.Y = 0;
+
+
+            for (int i = 0; i < 11; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    arr[j,i]= lMap.getMapArray()[j,i];
+                }
+            }
+
+            
+            
+            for(int i = 0; i < 11; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                  if (arr[j, i] == 11)
+                  {
+                        gObject.DrawEllipse(pink, circle);
+                        gObject.FillEllipse(fillpink, circle);
+                        circle.Y = (j+1) * 60;
+                        
+                   }
+                  else if(arr[j, i] == 9)
+                   {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                        gObject.DrawEllipse(blue, circle);
+                        gObject.FillEllipse(fillblue, circle);
+                        circle.Y = (j + 1) * 60;
+                   }
+                    else if (arr[j, i] == 7)
+                    {
+                        gObject.DrawEllipse(yellow, circle);
+                        gObject.FillEllipse(fillyellow, circle);
+                        circle.Y = (j + 1) * 60;
+                    }
+                    else if (arr[j, i] == 8)
+                    {
+                        gObject.DrawEllipse(orange, circle);
+                        gObject.FillEllipse(fillorange, circle);
+                        circle.Y = (j + 1) * 60;
+                    }
+                    else if (arr[j, i] == 4)
+                    {
+                        gObject.DrawEllipse(green, circle);
+                        gObject.FillEllipse(fillgreen, circle);
+                        circle.Y = (j + 1) * 60;
+                    }
+                    else if (arr[j, i] == 1)
+                    {
+                        gObject.DrawEllipse(skyblue, circle);
+                        gObject.FillEllipse(fillskyblue, circle);
+                        circle.Y = (j + 1) * 60;
+                    }
+                    else if (arr[j, i] == 10)
+                    {
+                        gObject.DrawEllipse(violet, circle);
+                        gObject.FillEllipse(fillviolet, circle);
+                        circle.Y = (j + 1) * 60;
+                    }
+                   else if (arr[j, i] == 3)
+                    {
+                        gObject.DrawEllipse(darkblue, circle);
+                        gObject.FillEllipse(filldarkblue, circle);
+                        circle.Y = (j + 1) * 60;
+                    }
+                    else if (arr[j, i] == 2)
+                    {
+                        gObject.DrawEllipse(darkred, circle);
+                        gObject.FillEllipse(filldarkred, circle);
+                        circle.Y = (j + 1) * 60;
+                    }
+                    else if (arr[j, i] == 5)
+                    {
+                        gObject.DrawEllipse(red, circle);
+                        gObject.FillEllipse(fillred, circle);
+                        circle.Y = (j + 1) * 60;
+                    }
+                    else if (arr[j, i] == 6)
+                    {
+                        gObject.DrawEllipse(lightgreen, circle);
+                        gObject.FillEllipse(filllightgreen, circle);
+                        circle.Y = (j + 1) * 60;
+                    }
+                    else if (arr[j, i] == 12)
+                    {
+                        gObject.DrawEllipse(turquoise, circle);
+                        gObject.FillEllipse(fillturquoise, circle);
+                        circle.Y = (j + 1) * 60;
+                    }
+
+                }
+
+                circle.Y = 0;
+                circle.X = (i + 1) * 60;
+            }
+            circle.X = 0;
+            circle.Y = 0;
+        }
+        public void setUpCanvas()
+        {
+            Brush bg = new SolidBrush(Color.WhiteSmoke);
+            Pen lines = new Pen(Color.Black);
+            gObject.FillRectangle(bg, new Rectangle(0,0,660, 300));
+            gObject.DrawLine(lines, new Point(60,0), new Point(60, 300));
+            gObject.DrawLine(lines, new Point(120, 0), new Point(120, 300));
+            gObject.DrawLine(lines, new Point(180, 0), new Point(180, 300));
+            gObject.DrawLine(lines, new Point(240, 0), new Point(240, 300));
+            gObject.DrawLine(lines, new Point(300, 0), new Point(300, 300));
+            gObject.DrawLine(lines, new Point(360, 0), new Point(360, 300));
+            gObject.DrawLine(lines, new Point(420, 0), new Point(420, 300));
+            gObject.DrawLine(lines, new Point(480, 0), new Point(480, 300));
+            gObject.DrawLine(lines, new Point(540, 0), new Point(540, 300));
+            gObject.DrawLine(lines, new Point(600, 0), new Point(600, 300));
+            gObject.DrawLine(lines, new Point(660, 0), new Point(660, 300));
+           
+
+
+            gObject.DrawLine(lines, new Point(0, 60), new Point(660, 60));
+            gObject.DrawLine(lines, new Point(0, 120), new Point(660, 120));
+            gObject.DrawLine(lines, new Point(0, 180), new Point(660, 180));
+            gObject.DrawLine(lines, new Point(0, 240), new Point(660, 240));
+            gObject.DrawLine(lines, new Point(0, 300), new Point(660, 300));
+            
+
+
+
+
+
+        }
+
+
+    }
+}
