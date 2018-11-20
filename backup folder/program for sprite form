@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp4
+{
+    static class Program
+    {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            PuzzlePiece[] a = new PuzzlePiece[12];
+            int[] locXarray = new int[12];
+            int[] locYarray = new int[12];
+            locYarray[0] = 0;
+            locYarray[1] = 0;
+            locYarray[2] = 0;
+            locYarray[3] = 0;
+            locYarray[4] = 100;
+            locYarray[5] = 100;
+            locYarray[6] = 100;
+            locYarray[7] = 100;
+            locYarray[8] =200;
+            locYarray[9] = 200;
+            locYarray[10] = 200;
+            locYarray[11] = 200;
+            locXarray[0] = 0;
+            locXarray[1] = 100;
+            locXarray[2] = 200;
+            locXarray[3] = 300;
+            locXarray[4] = 0;
+            locXarray[5] = 100;
+            locXarray[6] = 200;
+            locXarray[7] = 300;
+            locXarray[8] = 0;
+            locXarray[9] = 100;
+            locXarray[10] = 200;
+            locXarray[11] = 300;
+            
+            a[0] = new PuzzlePiece(1, 1 ,true);
+            a[1]= new PuzzlePiece(2, 2, true);
+            a[2] = new PuzzlePiece(3, 3, true);
+            a[3] = new PuzzlePiece(4, 4, true);
+            a[4] = new PuzzlePiece(5, 5, true);
+            a[5] = new PuzzlePiece(6, 6, true);
+            a[6] = new PuzzlePiece(7, 7, true);
+            a[7] = new PuzzlePiece(8, 8, true);
+            a[8] = new PuzzlePiece(9, 9, true);
+            a[9] = new PuzzlePiece(10, 10, true);
+            a[10] = new PuzzlePiece(11, 11, true);
+            a[11] = new PuzzlePiece(12, 12, true);
+            Sprite x = (new Sprite(a, locXarray, locYarray));
+            Application.Run(x);
+            Console.WriteLine("" + x.selectedPiece);
+            Console.ReadLine();
+        }
+}
+}
