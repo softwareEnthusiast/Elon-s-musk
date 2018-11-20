@@ -1,5 +1,12 @@
 using System;
-
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
 public class PuzzlePiece
 {
     int ID;     // All pieces in a puzzle has different ID
@@ -15,7 +22,6 @@ public class PuzzlePiece
         this.ID = ID;
         this.pieceType = pieceType;
         this.isMovable = isSelectable;
-        inInventory = true;
         pieceArray = new bool[4, 4];
 
         for (int i = 0; i < 4; i++)
@@ -136,12 +142,6 @@ public class PuzzlePiece
         pieceArray = tempPieceArray;
     }
 
-    public void rotate180()
-    {
-        rotateRight();
-        rotateRight();
-    }
-
     public void rotateLeft()
     {
         bool[,] tempPieceArray = new bool[4, 4];
@@ -157,7 +157,7 @@ public class PuzzlePiece
         pieceArray = tempPieceArray;
     }
 
-    public void flipHorizontal()
+    public void flip()
     {
         bool[,] tempPieceArray = new bool[4, 4];
 
@@ -172,40 +172,25 @@ public class PuzzlePiece
         pieceArray = tempPieceArray;
     }
 
-    public void flipVertical()
-    {
-        bool[,] tempPieceArray = new bool[4, 4];
+     public bool isSelectable()
+     {
+         return isMovable;
+     }
 
-        for (int i = 0; i < 4; i++)
-        {
-            for (int j = 0; j < 4; j++)
-            {
-                tempPieceArray[3 - i, j] = pieceArray[i, j];
-            }
-        }
-
-        pieceArray = tempPieceArray;
-    }
-
-    public bool isSelectable()
-    {
-        return isMovable;
-    }
-
-    public void setSelectable(bool s)
-    {
+     public void setSelectable(bool s)
+     {
         isMovable = s;
-    }
+     }
 
-    public bool isInInventory()
-    {
-        return inInventory;
-    }
+     public bool isInInventory()
+     {
+         return inInventory;
+     }
 
-    public void setIsInInventory(bool s)
-    {
-        inInventory = s;
-    }
+     public void setIsInInventory(bool s)
+     {
+         inInventory = s;
+     }
 
     public int getLocX()
     {
@@ -241,4 +226,5 @@ public class PuzzlePiece
     {
         return ID;
     }
+
 }
