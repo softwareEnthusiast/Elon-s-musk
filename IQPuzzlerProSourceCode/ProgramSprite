@@ -1,29 +1,196 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
-
-namespace WindowsFormsApp2
+namespace WindowsFormsApp4
 {
-    static class Program
+    public class Sprite : System.Windows.Forms.Control
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            PuzzlePiece a = new PuzzlePiece(1, 1);
-            PuzzlePiece b = new PuzzlePiece(2, 2);
-            PuzzlePiece c = new PuzzlePiece(3, 3);
-            PuzzlePiece d = new PuzzlePiece(4, 4);
-            PuzzlePiece e = new PuzzlePiece(5, 5);
-            PuzzlePiece f = new PuzzlePiece(6, 6);
-            Application.Run(new Sprite(15, 15, a));
+        public int locX;
+        public int locY;
+        public int[] locXa;
+        public int[] locYa;
+        PuzzlePiece piece;
+        int width;
+        int ID;
+        bool dragging;
+        public int transparency;
+        public int layer;
+        bool[,] pieceArray;
+        bool selected;
+        Rectangle circle;
+        bool init;
+        public Sprite(int locx, int locy, int width, PuzzlePiece aPiece)
+        {       
+            locX = locx;
+            locY = locy;
+            locXa = new int[5];
+            locYa = new int[5];
+            piece = aPiece;
+            selected = false;
+            init = true;
+            this.width = width;
+            pieceArray = piece.getPieceArray();
+            circle = new Rectangle(locX, locY, width, width);
+            dragging = false;
+        }
 
+        private PictureBox pictureBox1 = new PictureBox();
+        Pen red = new Pen(Color.Red);
+        Pen blue = new Pen(Color.Blue);
+        System.Drawing.SolidBrush fillred = new System.Drawing.SolidBrush(Color.Red);
+        Point cursor = Point.Empty;
+
+
+        public void drawing()
+        {
+            circle.X = locX;
+            circle.Y = locY;
+
+            blue.Width = 3.0F;
+
+            int s = 0;
+
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if (pieceArray[i, j])
+                    {                        
+                        locXa[s] = circle.X;
+                        locYa[s] = circle.Y;
+                        s++;
+                    }
+                    circle.X += 25;
+                }
+                circle.X -= 100;
+                circle.Y += 25;
+            }         
+        }
+
+        public void draw(Graphics g )
+        {
+            circle.X = locX;
+            circle.Y = locY;
+
+            blue.Width = 3.0F;
+            for (int i = 0; i < 5; i++)
+            {
+                if (locXa[i] != 0)
+                {
+                    circle.X = locXa[i];
+                    circle.Y = locYa[i];
+                    if (selected)
+                    {
+                        g.DrawEllipse(blue, circle);
+                    }
+                    else
+                    {
+                        g.DrawEllipse(red, circle);
+                    }
+                    g.FillEllipse(fillred, circle);
+                }
+            }
+            
+        }
+        public bool[,] rightRot()
+        {
+            piece.rotateRight();
+            pieceArray = piece.getPieceArray();
+
+            return pieceArray;
+        }
+
+        public bool[,] leftRot()
+        {
+            piece.rotateLeft();
+            pieceArray = piece.getPieceArray();
+
+            return pieceArray;
+        }
+
+        public bool[,] flip()
+        {
+            piece.flip();
+            pieceArray = piece.getPieceArray();
+
+            return pieceArray;
+        }
+        
+        public bool isSelected(int x, int y)
+        {
+            int locx1 = locX;
+            int locy1 = locY;
+            if (((locx1 <= x) && (x <= (locx1 + (4 * 25)))) && ((locy1 <= y) && (y <= locy1 + (4 * 25))))
+            {
+                 for (int i = 0; i < 4; i++)
+                 {
+                     for (int j = 0; j < 4; j++)
+                     {
+                         if (pieceArray[i, j])
+                         {
+                             if (Math.Sqrt((((locx1 + (circle.Width / 2)) - x) * ((locx1 + (circle.Width / 2)) - x)) + (((locy1 + (circle.Width / 2)) - y) * ((locy1 + (circle.Width / 2)) - y))) <= (circle.Width / 2))
+                             {
+                                selected = true;
+                                return selected;
+                             }
+                         }
+                         locx1 += 25;
+                     }
+                     locx1 -= 100;
+                     locy1 += 25;
+                 }
+            }
+            else
+            {
+                selected = false;
+                return selected;
+            }
+            
+            return selected;
+        }
+
+        public bool isSelected1()
+        {
+            return this.selected;
+        }
+
+        public void setPieceArray(bool[,] aPieceArray)
+        {
+            pieceArray = aPieceArray;
+        }
+
+        public void setPiece(PuzzlePiece piecee)
+        {
+            piece = piecee;
+            pieceArray = piece.getPieceArray();
+        }
+        public void setLocX(int x)
+        {
+            locX = x;
+        }
+
+        public void setLocY(int y)
+        {
+            locY = y;
+        }
+        public int getLocX()
+        {
+            return locX;
+        }
+
+        public int getLocY()
+        {
+            return locY;
+        }
+        public void chooseSelected(bool s)
+        {
+            selected = s;
         }
     }
 }
