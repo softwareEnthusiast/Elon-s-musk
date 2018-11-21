@@ -1,0 +1,350 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace IQPuzzleProVer2
+{
+    public partial class Form2 : Form
+    {
+        int level;
+        int length;
+        MapSprite spriteMap;
+        public int locX;
+        public int locY;
+        bool dragging;
+        public int transparency;
+        public int layer;
+        List<PuzzlePiece> pieceArray;
+        int[] locXarray;
+        int[] locYarray;
+        bool[,] pieceArrayB = new bool[4, 4];
+        GameManager gameManager;
+        public int selectedPiece;
+        int[] locXArray;
+        int[] locYArray;
+        Sprite2[] sprite1;
+        Graphics g;
+        
+        public Form2()
+        {
+            gameManager = new GameManager();
+            level = gameManager.getLevel(1);
+            g = this.CreateGraphics();
+            gameManager.initializePuzzle(level, g);
+            length = gameManager.numberOfPuzzlePiece();
+            pieceArray = gameManager.getInventoryPuzzlePieces();
+            locXarray = new int[length];
+            locYarray = new int[length];
+ 
+
+            if (length > 3)
+            {
+                for (int i = 0; i < length - 3; i++)
+                {
+                    locYarray[i] = 400;
+                }
+                for (int i = length - 3; i < length; i++)
+                {
+                    locYarray[i] = 500;
+                }
+                for (int i = 0; i < length-3; i++)
+                {
+                    locXarray[i] += i* 300;
+                }
+                for (int i = length - 3; i < length; i++)
+                {
+                    locXarray[i] += (i-(length-3)) * 300;
+                }
+
+            }
+            else
+            {
+                for (int i = 0; i < length; i++)
+                {
+                    locYarray[i] = 400;
+                }
+                for (int i = 0; i < length; i++)
+                {
+                    locXarray[i] += i * 300;
+                }
+            }
+
+
+
+            
+           
+
+
+
+            sprite1 = new Sprite2[length];
+            selectedPiece = 30;
+             for (int i = 0; i < length; i++)
+             {
+                 sprite1[i] = new Sprite2(locXarray[i], locYarray[i], 60, pieceArray[i]);
+
+             }
+             for (int i = 0; i < length; i++)
+             {
+               
+                 sprite1[i].drawing();
+             }
+
+
+            
+            InitializeComponent();
+            
+
+        }
+
+
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics toPass = panel1.CreateGraphics();
+            
+            spriteMap = new MapSprite(level, toPass);
+
+            g = this.CreateGraphics();
+            for (int i = 0; i < length; i++)
+            {
+                sprite1[i].drawing();
+                sprite1[i].draw(toPass);                
+            }
+
+           
+        }
+
+
+        private PictureBox pictureBox1 = new PictureBox();
+        Pen red = new Pen(Color.Red);
+        Pen blue = new Pen(Color.Blue);
+        System.Drawing.SolidBrush fillred = new System.Drawing.SolidBrush(Color.Red);
+        Point cursor = Point.Empty;
+
+
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            
+            g = this.CreateGraphics();
+            for (int i = 0; i < length; i++)
+            {
+                sprite1[i].drawing();
+                sprite1[i].draw(g);
+            }
+            
+        }
+
+
+
+
+
+
+
+
+
+        private void Sprite_MouseMove(object sender, MouseEventArgs e)
+        {
+            cursor.X = MousePosition.X - this.Location.X;
+            cursor.Y = MousePosition.Y - this.Location.Y;
+
+
+            if (dragging)
+            {
+
+                sprite1[selectedPiece].setLocX(cursor.X - 120);
+                sprite1[selectedPiece].setLocY(cursor.Y - 120);
+                Invalidate();
+                sprite1[selectedPiece].draw(g);
+
+            }
+        }
+
+
+
+
+
+        private void Sprite_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void label1_TextChanged(object sender, EventArgs e)
+        {
+            //label1.Text = "" + selectedPiece;
+            //Refresh();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (selectedPiece < length)
+            {
+                Graphics g = this.CreateGraphics();
+                sprite1[selectedPiece].setPieceArray(sprite1[selectedPiece].flip());
+                Invalidate();
+                sprite1[selectedPiece].draw(g);
+            }
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            if (selectedPiece < length)
+            {
+                Graphics g = this.CreateGraphics();
+                sprite1[selectedPiece].setPieceArray(sprite1[selectedPiece].rightRot());
+                Invalidate();
+                sprite1[selectedPiece].draw(g);
+            }
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            if (selectedPiece < length)
+            {
+                Graphics g = this.CreateGraphics();
+                sprite1[selectedPiece].setPieceArray(sprite1[selectedPiece].leftRot());
+                Invalidate();
+                sprite1[selectedPiece].draw(g);
+            }
+        }
+
+        private void Form1_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_MouseClick(object sender, MouseEventArgs e)
+        {
+            int x = 0;
+            for (int i = 0; x < length; i++)
+            {
+
+                if (sprite1[i].isSelected(e.X, e.Y))
+                {
+                    sprite1[selectedPiece].chooseSelected(false);
+                    selectedPiece = i;
+                    sprite1[selectedPiece].chooseSelected(true);
+                    Invalidate();
+                    sprite1[i].draw(g);
+                    x = 30;
+                }
+                x++;
+            }
+        }
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            int x = 0;
+            for (int i = 0; x < length; i++)
+            {
+
+                if (sprite1[i].isSelected(e.X, e.Y))
+                {
+                    if (selectedPiece < length)
+                    {
+                        sprite1[selectedPiece].chooseSelected(false);
+                    }
+                    selectedPiece = i;
+                    sprite1[selectedPiece].chooseSelected(true);
+                    dragging = true;
+                    Invalidate();
+                    sprite1[i].draw(g);
+                    x = 30;
+                }
+                x++;
+            }
+        }
+
+        private void Form1_MouseUp_1(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_MouseClick(object sender, MouseEventArgs e)
+        {
+            int x = 0;
+            for (int i = 0; x < length; i++)
+            {
+
+                if (sprite1[i].isSelected(e.X, e.Y))
+                {
+                    sprite1[selectedPiece].chooseSelected(false);
+                    selectedPiece = i;
+                    sprite1[selectedPiece].chooseSelected(true);
+                    Invalidate();
+                    sprite1[i].draw(g);
+                    x = 30;
+                }
+                x++;
+            }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            int x = 0;
+            for (int i = 0; x < length; i++)
+            {
+
+                if (sprite1[i].isSelected(e.X, e.Y))
+                {
+                    if (selectedPiece < length)
+                    {
+                        sprite1[selectedPiece].chooseSelected(false);
+                    }
+                    selectedPiece = i;
+                    sprite1[selectedPiece].chooseSelected(true);
+                    dragging = true;
+                    Invalidate();
+                    sprite1[i].draw(g);
+                    x = 30;
+                }
+                x++;
+            }
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+            /*if (gameManager.collisionFound() && selectedPiece < length)
+            {
+                sprite1[selectedPiece].setLocX(locXarray[selectedPiece]);
+                sprite1[selectedPiece].setLocY(locYarray[selectedPiece]);
+            }
+            else
+            {
+                sprite1[selectedPiece].setLocX();
+                sprite1[selectedPiece].setLocY(locYarray[selectedPiece]);
+            }*/
+
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            cursor.X = MousePosition.X - this.Location.X;
+            cursor.Y = MousePosition.Y - this.Location.Y;
+
+
+            if (dragging)
+            {
+
+                sprite1[selectedPiece].setLocX(cursor.X - 120);
+                sprite1[selectedPiece].setLocY(cursor.Y - 120);
+                Invalidate();
+                sprite1[selectedPiece].draw(g);
+
+            }
+        }
+    }
+}
