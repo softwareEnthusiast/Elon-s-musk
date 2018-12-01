@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+
+namespace Game1
+{
+    class Puzzle
+    {
+        public float X { get; set; } //x position of puzzlepiece on screen
+        public float Y { get; set; } //y position of puzzlepiece on screen
+        public float Width { get; set; } //width of puzzlepiece
+        public float Height { get; set; } //height of puzzlepiece
+        private Color color;
+
+        private Texture2D puzzlePiece { get; set; }  //cached image of the map
+        private SpriteBatch spriteBatch;
+        public float ScreenWidth { get; set; } //width of game screen
+
+        public Puzzle(float x, float y, float screenWidth ,SpriteBatch spriteBatch, GameContent gameContent)
+        {
+            X = x;
+            Y = y;
+            puzzlePiece = gameContent.PuzzlePiece;
+            Width = puzzlePiece.Width;
+            Height = puzzlePiece.Height;
+            this.spriteBatch = spriteBatch;
+            this.ScreenWidth = screenWidth;
+        }
+
+        public void Draw()
+        {
+            spriteBatch.Draw(puzzlePiece, new Vector2(X, Y), null, Color.White, 0, new Vector2(0, 0), 3.3f, SpriteEffects.None, 0);
+        }
+    }
+}
