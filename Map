@@ -1,0 +1,74 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+
+namespace Game1
+{
+    class Map
+    {
+        public float X { get; set; } //x position of map on screen
+        public float Y { get; set; } //y position of map on screen
+        public float Width { get; set; } //width of map
+        public float Height { get; set; } //height of map
+        public float ScreenWidth { get; set; } //width of game screen
+
+        private Texture2D map { get; set; }  //cached image of the map
+        private SpriteBatch spriteBatch;
+        int mapID;
+        List<Puzzle> pieces;
+        Puzzle piece;
+        Puzzle piece2;
+        Puzzle piece3;
+        Puzzle piece4;
+        Puzzle piece5;
+        Puzzle piece6;
+
+
+        public Map(int mapID, float x, float y, float screenWidth, SpriteBatch spriteBatch, GameContent gameContent)
+        {
+            X = x;
+            Y = y;
+            map = gameContent.Map;
+            Width = map.Width;
+            Height = map.Height;
+            this.spriteBatch = spriteBatch;
+            ScreenWidth = screenWidth;
+            this.mapID = mapID;
+            if (mapID == 1)
+            {
+                pieces = new List<Puzzle>();
+                float puzzlePieceX = 0;
+                float puzzlePieceY = 0;
+                piece = new Puzzle(2,0, 3, puzzlePieceX, puzzlePieceY, spriteBatch,gameContent);
+                piece2 = new Puzzle(1, 0,1, puzzlePieceX, puzzlePieceY + 100, spriteBatch, gameContent);
+                piece3 = new Puzzle(3,1, 2, puzzlePieceX + 50, puzzlePieceY, spriteBatch, gameContent);
+                piece4 = new Puzzle(4, 0,1, puzzlePieceX + 100, puzzlePieceY + 50 , spriteBatch, gameContent);
+                pieces.Add(piece);
+                pieces.Add(piece2);
+                pieces.Add(piece3);
+                pieces.Add(piece4);
+
+
+            }
+            
+        }
+  
+        public void Draw(GameTime gameTime)
+        {
+            spriteBatch.Draw(map, new Vector2(X, Y), null, Color.White, 0, new Vector2(0, 0), 0.5f, SpriteEffects.None, 0);
+            foreach(Puzzle item in pieces)
+            {
+                item.Draw(gameTime);
+            }
+             
+        }
+
+        
+    }
+}
