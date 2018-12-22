@@ -13,8 +13,8 @@ namespace IQPuzzleProVer2
 {
 
 
-    public class Sprite2 : System.Windows.Forms.Control
-    {
+        public class Sprite2 : System.Windows.Forms.Control
+        {
         public int locX;
         public int locY;
         public int[] locXa;
@@ -33,7 +33,6 @@ namespace IQPuzzleProVer2
         Rectangle circle;
         bool init;
 
-
         public Sprite2(int locx, int locy, int width, PuzzlePiece aPiece)
         {
             locX = locx;
@@ -48,6 +47,7 @@ namespace IQPuzzleProVer2
             circle = new Rectangle(locX, locY, width, width);
             dragging = false;
 
+
         }
 
 
@@ -56,11 +56,24 @@ namespace IQPuzzleProVer2
 
 
         public void drawing( )
+        }
+
+        
+        Pen red = new Pen(Color.Red);
+        Pen blue = new Pen(Color.Blue);
+        System.Drawing.SolidBrush fillred = new System.Drawing.SolidBrush(Color.Red);
+        Point cursor = Point.Empty;
+
+
+        public void drawing()
+
         {
             gp = new GraphicsPath();
 
             circle.X = locX;
             circle.Y = locY;
+
+            blue.Width = 3.0F;
 
             int s = 0;
 
@@ -81,6 +94,7 @@ namespace IQPuzzleProVer2
                 }
                 circle.X -= 240;
                 circle.Y += 60;
+
             }
           
         }
@@ -105,10 +119,43 @@ namespace IQPuzzleProVer2
         public bool[,] rightRot()
         {
             piece.rotateRight();
+=======
+            }
+        }
+
+        public void draw(Graphics g)
+        {
+            circle.X = locX;
+            circle.Y = locY;
+
+            blue.Width = 3.0F;
+            for (int i = 0; i < 5; i++)
+            {
+                if (locXa[i] != 0)
+                {
+                    circle.X = locXa[i];
+                    circle.Y = locYa[i];
+                    if (selected)
+                    {
+                        g.DrawEllipse(blue, circle);
+                    }
+                    else
+                    {
+                        g.DrawEllipse(red, circle);
+                    }
+                    g.FillEllipse(fillred, circle);
+                }
+            }
+            
+        }
+        public bool[,] rightRot()
+        {
+            piece.rotateRight();
             pieceArray = piece.getPieceArray();
 
             return pieceArray;
         }
+
 
         public bool[,] leftRot()
         {
@@ -129,6 +176,19 @@ namespace IQPuzzleProVer2
         public bool isSelected(int x, int y)
         {
             /*int locx1 = locX;
+        }
+        public bool[,] flip()
+        {
+            piece.flip();
+            pieceArray = piece.getPieceArray();
+
+            return pieceArray;
+        }
+
+        public bool isSelected(int x, int y)
+        {
+            int locx1 = locX;
+
             int locy1 = locY;
             if (((locx1 <= x) && (x <= (locx1 + (4 * width)))) && ((locy1 <= y) && (y <= locy1 + (4 * width))))
             {
@@ -149,11 +209,13 @@ namespace IQPuzzleProVer2
                     locx1 -= 240;
                     locy1 += 60;
                 }
+
             }*/
             if (gp.IsVisible(x, y))
             {
                 selected = true;
                 return selected;
+
             }
             else
             {
@@ -161,7 +223,6 @@ namespace IQPuzzleProVer2
                 return selected;
             }
 
-            //return selected;
         }
 
         public bool isSelected1()
@@ -201,6 +262,7 @@ namespace IQPuzzleProVer2
         {
             selected = s;
         }
+
      
     }
 }

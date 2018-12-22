@@ -1,0 +1,200 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+namespace WindowsFormsApp4
+{
+    public partial class Sprite : Form
+    {
+        public int locX;
+        public int locY;
+        bool dragging;
+        public int transparency;
+        public int layer;
+        bool[,] pieceArrayB = new bool[4, 4];
+        PuzzlePiece[] pieceArray;
+        public int selectedPiece;
+        int[] locXArray;
+        int[] locYArray;
+        Sprite2[] sprite1;
+        Graphics g;
+        public Sprite(PuzzlePiece[] pieceArrayy, int[] locXArray1, int[] locYArray1)
+        {
+            pieceArray = pieceArrayy;
+            locXArray = locXArray1;
+            locYArray = locYArray1;
+            sprite1 = new Sprite2[12];
+            selectedPiece = 15;
+            for (int i = 0; i < 12; i++)
+            {
+                sprite1[i] = new Sprite2(locXArray[i], locYArray[i], 25, pieceArray[i]);
+                
+            }
+            for (int i = 0; i < 12; i++)
+            {
+                sprite1[i].drawing();
+            }
+            g = this.CreateGraphics();
+            InitializeComponent();
+        }
+
+
+
+
+
+        private PictureBox pictureBox1 = new PictureBox();
+        Pen red = new Pen(Color.Red);
+        Pen blue = new Pen(Color.Blue);
+        System.Drawing.SolidBrush fillred = new System.Drawing.SolidBrush(Color.Red);
+        Point cursor = Point.Empty;
+
+
+
+
+        private void Sprite_Paint_1(object sender, PaintEventArgs e)
+        {
+            for (int i = 0; i < 12; i++)
+            {
+                sprite1[i].drawing();
+                sprite1[i].draw(g);
+            }
+
+        }
+
+    
+
+        private void Sprite_MouseClick(object sender, MouseEventArgs e)
+        {
+            int x = 0;
+            for (int i = 0; x < 12; i++)
+            {
+               
+                if (sprite1[i].isSelected(e.X, e.Y))
+                {
+                    sprite1[selectedPiece].chooseSelected(false);
+                    selectedPiece = i;
+                    sprite1[selectedPiece].chooseSelected(true);
+                    Invalidate();
+                    sprite1[i].draw(g);
+                    x = 15;
+                }
+                x++;
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (selectedPiece < 12)
+            {
+                Graphics g = this.CreateGraphics();
+                sprite1[selectedPiece].setPieceArray(sprite1[selectedPiece].rightRot());
+                Invalidate();
+                sprite1[selectedPiece].draw(g);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (selectedPiece < 12)
+            {
+                Graphics g = this.CreateGraphics();
+                sprite1[selectedPiece].setPieceArray(sprite1[selectedPiece].leftRot());
+                Invalidate();
+                sprite1[selectedPiece].draw(g);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (selectedPiece < 12)
+            {
+                Graphics g = this.CreateGraphics();
+                sprite1[selectedPiece].setPieceArray(sprite1[selectedPiece].flip());
+                Invalidate();
+                sprite1[selectedPiece].draw(g);
+            }
+        }
+        
+        private void Sprite_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+
+
+        private void Sprite_MouseMove(object sender, MouseEventArgs e)
+        {
+            cursor.X = MousePosition.X - this.Location.X;
+            cursor.Y = MousePosition.Y - this.Location.Y;
+
+
+            if (dragging)
+            {
+
+                sprite1[selectedPiece].setLocX(cursor.X - 50);
+                sprite1[selectedPiece].setLocY(cursor.Y - 50);
+                Invalidate();
+                sprite1[selectedPiece].draw(g);
+               
+            }
+        }
+
+
+
+        private void Sprite_MouseDown(object sender, MouseEventArgs e)
+        {
+            int x = 0;
+            for (int i = 0; x < 12; i++)
+            {
+
+                if (sprite1[i].isSelected(e.X, e.Y))
+                {
+                    if (selectedPiece < 12)
+                    {
+                        sprite1[selectedPiece].chooseSelected(false);
+                    }
+                    selectedPiece = i;
+                    sprite1[selectedPiece].chooseSelected(true);
+                    dragging = true;
+                    Invalidate();
+                    sprite1[i].draw(g);
+                    x = 15;
+                }
+                x++;
+            }
+        }
+        private void Sprite_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+        }
+
+        private void Sprite_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Sprite_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+           
+        }
+
+        private void Sprite_Load_1(object sender, EventArgs e)
+        {
+
+        }
+        
+
+        private void label1_TextChanged(object sender, EventArgs e)
+        {
+            //label1.Text = "" + selectedPiece;
+            //Refresh();
+        }
+        
+    }
+}
