@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
+namespace Game1
+{
+ 
+        /// <summary>
+        /// Interface describing necessary implementation for working with the DragonDrop Handler.
+        /// </summary>
+        public interface IDragonDropItem
+        {
+            Vector2 Position { get; set; }
+            bool IsSelected { get; set; }
+            bool IsMouseOver { get; set; }
+            Rectangle Border { get; }
+            bool IsDraggable { get; set; }
+            Texture2D Texture { get; }
+
+            void OnSelected();
+            void OnDeselected();
+            bool Contains(Vector2 pointToCheck);
+            void OnCollusion(IDragonDropItem item);
+            void Update(GameTime gameTime);
+            void Draw(GameTime gameTime);
+        }
+    
+}
