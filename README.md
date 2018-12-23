@@ -1,7 +1,10 @@
 # IQ PUZZLER PRO
- CS319 Section-3
- Group 3G
- Group Name: Elon's Musk
+ CS319 Section-3   
+ Group 3G   
+ Group Name: Elon's Musk   
+   
+
+OUR TRAILER VIDEO : https://youtu.be/0tRk97c7ybY
 
 ## Members of the Group
 1. Ebru Kerem - 21501859
@@ -10,8 +13,6 @@
 4. Cenk Er - 21600937
 5. Eren Yalçın - 21602004
 6. Burak Bayar - 21401971
-
-OUR TRAILER VIDEO : https://youtu.be/0tRk97c7ybY
 
 
 ## Project Description
