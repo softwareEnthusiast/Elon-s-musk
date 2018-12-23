@@ -11,6 +11,8 @@
 5. Eren Yalçın - 21602004
 6. Burak Bayar - 21401971
 
+OUR TRAILER VIDEO : https://youtu.be/0tRk97c7ybY
+
 
 ## Project Description
 This is a small project with 6 contributors aiming to create an IQ Puzzler Pro Windows PC game using .NET framework and software engineering practices.
