@@ -261,6 +261,39 @@ namespace IQPuzzleProVer2
 
         public Map getCustomMap()
         {
+           /* String line;
+            CustomMap customMap = new CustomMap();
+            try
+            {
+                //Pass the file path and file name to the StreamReader constructor
+                StreamReader sr = new StreamReader(@"C: \Users\Lenovo\Desktop\IQPuzzlerProVer5\IQPuzzleProVer4.txt");
+
+                //Read the first line of text
+                customMap.customArr = sr.ReadLine();
+
+                //Continue to read until you reach end of file
+                while (line != null)
+                {
+                    //write the lie to console window
+                    Console.WriteLine(line);
+                    //Read the next line
+                    line = sr.ReadLine();
+                }
+
+                //close the file
+                sr.Close();
+                Console.ReadLine();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: " + e.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Executing finally block.");
+            }
+            */
+
             return customMap;
         }
 

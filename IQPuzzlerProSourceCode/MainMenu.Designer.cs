@@ -28,56 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Button button1;
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            button1 = new System.Windows.Forms.Button();
+            this.soloGameButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.onlineGameButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // soloGameButton
             // 
-            button1.BackColor = System.Drawing.Color.Transparent;
-            button1.BackgroundImage = global::IQPuzzleProVer2.Properties.Resources.soloButton;
-            button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            button1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button1.ForeColor = System.Drawing.Color.Transparent;
-            button1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            button1.Location = new System.Drawing.Point(360, 170);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(145, 53);
-            button1.TabIndex = 0;
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += new System.EventHandler(this.button1_Click);
+            this.soloGameButton.BackColor = System.Drawing.Color.Transparent;
+            this.soloGameButton.BackgroundImage = global::IQPuzzleProVer2.Properties.Resources.soloButton;
+            this.soloGameButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.soloGameButton.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.soloGameButton.FlatAppearance.BorderSize = 0;
+            this.soloGameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.soloGameButton.ForeColor = System.Drawing.Color.Transparent;
+            this.soloGameButton.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.soloGameButton.Location = new System.Drawing.Point(360, 170);
+            this.soloGameButton.Name = "soloGameButton";
+            this.soloGameButton.Size = new System.Drawing.Size(145, 53);
+            this.soloGameButton.TabIndex = 0;
+            this.soloGameButton.UseVisualStyleBackColor = true;
+            this.soloGameButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button4
+            // exitButton
             // 
-            this.button4.BackColor = System.Drawing.Color.Transparent;
-            this.button4.BackgroundImage = global::IQPuzzleProVer2.Properties.Resources.exitButton;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.Transparent;
-            this.button4.Location = new System.Drawing.Point(360, 340);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(145, 53);
-            this.button4.TabIndex = 3;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.exitButton.BackColor = System.Drawing.Color.Transparent;
+            this.exitButton.BackgroundImage = global::IQPuzzleProVer2.Properties.Resources.exitButton;
+            this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.exitButton.FlatAppearance.BorderSize = 0;
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.ForeColor = System.Drawing.Color.Transparent;
+            this.exitButton.Location = new System.Drawing.Point(360, 340);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(145, 53);
+            this.exitButton.TabIndex = 3;
+            this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button2
+            // onlineGameButton
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.BackgroundImage = global::IQPuzzleProVer2.Properties.Resources.onlineButton;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Transparent;
-            this.button2.Location = new System.Drawing.Point(360, 252);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(145, 53);
-            this.button2.TabIndex = 1;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.onlineGameButton.BackColor = System.Drawing.Color.Transparent;
+            this.onlineGameButton.BackgroundImage = global::IQPuzzleProVer2.Properties.Resources.onlineButton;
+            this.onlineGameButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.onlineGameButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.onlineGameButton.FlatAppearance.BorderSize = 0;
+            this.onlineGameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.onlineGameButton.ForeColor = System.Drawing.Color.Transparent;
+            this.onlineGameButton.Location = new System.Drawing.Point(360, 252);
+            this.onlineGameButton.Name = "onlineGameButton";
+            this.onlineGameButton.Size = new System.Drawing.Size(145, 53);
+            this.onlineGameButton.TabIndex = 1;
+            this.onlineGameButton.UseVisualStyleBackColor = false;
+            this.onlineGameButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // MainMenu
             // 
@@ -86,12 +88,12 @@
             this.BackgroundImage = global::IQPuzzleProVer2.Properties.Resources.backgroundImage;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(966, 554);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(button1);
+            this.Controls.Add(this.exitButton);
+            this.Controls.Add(this.onlineGameButton);
+            this.Controls.Add(this.soloGameButton);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "MainMenu";
-            this.Text = "Form1";
+            this.Text = "MainMenu";
             this.TransparencyKey = System.Drawing.Color.White;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.MainMenu_Load);
@@ -101,8 +103,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button onlineGameButton;
+        private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button soloGameButton;
     }
 }
 

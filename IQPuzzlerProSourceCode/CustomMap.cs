@@ -44,8 +44,8 @@ namespace IQPuzzleProVer2
         int length;
         public int selectedPiece;
         GraphicsPath gp;
-        List<PuzzlePiece> customArr;
-        List<PuzzlePiece> invArr;
+        public List<PuzzlePiece> customArr;
+        public List<PuzzlePiece> invArr;
 
 
 
