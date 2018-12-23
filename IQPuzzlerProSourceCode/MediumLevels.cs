@@ -19,7 +19,7 @@ namespace IQPuzzleProVer2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 form = new Form2(2);
+            Form2 form = new Form2(13);
             form.Show();
             this.Hide();
         }
@@ -41,6 +41,23 @@ namespace IQPuzzleProVer2
         private void button4_Click(object sender, EventArgs e)
         {
             LevelDifficulty form = new LevelDifficulty();
+            form.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            Form2 form = new Form2(14);
+            form.Show();
+            this.Hide();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            Form2 form = new Form2(15);
             form.Show();
             this.Hide();
         }

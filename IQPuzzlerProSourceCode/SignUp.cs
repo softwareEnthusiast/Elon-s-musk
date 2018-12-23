@@ -17,25 +17,25 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+
+ 
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             loginPanel prev = new loginPanel();
             prev.Show();
             this.Hide();
         }
 
-        private void SignUp_FormClosing(object sender, FormClosingEventArgs e)
+        private void SignUp_FormClosing_1(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
-            {
-                if (MessageBox.Show("Are you sure want to exit?",
-                               "My First Application",
-                                MessageBoxButtons.OKCancel,
-                                MessageBoxIcon.Information) == DialogResult.OK)
-                    Environment.Exit(1);
-                else
-                    e.Cancel = true; // to don't close form is user change his mind
-            }
+
         }
     }
 }

@@ -43,7 +43,7 @@
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(1459, 354);
+            this.button3.Location = new System.Drawing.Point(1234, 350);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(86, 74);
             this.button3.TabIndex = 8;
@@ -58,7 +58,7 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Image = global::IQPuzzleProVer2.Properties.Resources.rotateRightButton;
-            this.button2.Location = new System.Drawing.Point(1459, 221);
+            this.button2.Location = new System.Drawing.Point(1234, 217);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(86, 74);
             this.button2.TabIndex = 7;
@@ -73,7 +73,7 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(1459, 92);
+            this.button1.Location = new System.Drawing.Point(1234, 88);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 74);
             this.button1.TabIndex = 6;
@@ -91,9 +91,9 @@
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(-132, -3);
+            this.panel1.Location = new System.Drawing.Point(0, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1950, 1111);
+            this.panel1.Size = new System.Drawing.Size(1500, 1103);
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick_1);

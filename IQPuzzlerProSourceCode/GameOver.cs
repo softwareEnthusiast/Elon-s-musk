@@ -8,27 +8,36 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace IQPuzzleProVer2
 {
-    public partial class LoginScreen : Form
+    public partial class GameOver : Form
     {
-        public LoginScreen()
+        int level;
+        public GameOver(int nLevel, string s)
         {
             InitializeComponent();
+            level = nLevel;
+            textBox1.Text = "You completed the puzzle in " + s;
         }
 
-
-
-
-
-        private void button4_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            loginPanel prev = new loginPanel();
-            prev.Show();
+            if(level < 15)
+            {
+                Form2 form = new Form2(level);
+                form.Show();
+                this.Hide();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LevelDifficulty form = new LevelDifficulty();
+            form.Show();
             this.Hide();
         }
 
-        private void LoginScreen_FormClosing_1(object sender, FormClosingEventArgs e)
+        private void GameOver_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
